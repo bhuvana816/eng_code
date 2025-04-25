@@ -1,0 +1,179 @@
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { BookOpen, Users, Calendar, GraduationCap, Award, Lightbulb } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import SEO from '../components/common/SEO';
+
+const HomePage: React.FC = () => {
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  const handleBookAppointment = () => {
+    if (isAuthenticated) {
+      navigate('/booking');
+    } else {
+      navigate('/login', { state: { from: '/booking' } });
+    }
+  };
+
+  const domains = [
+    { title: 'Web Development', icon: <BookOpen className="w-12 h-12 text-blue-600" /> },
+    { title: 'App Development', icon: <GraduationCap className="w-12 h-12 text-teal-600" /> },
+    { title: 'Data Science', icon: <Lightbulb className="w-12 h-12 text-orange-600" /> },
+    { title: 'AI & ML', icon: <Award className="w-12 h-12 text-purple-600" /> }
+  ];
+
+  return (
+    <>
+      <SEO title="Home" />
+      
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 md:py-32">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl">
+            <motion.h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Empowering Engineers of Tomorrow
+            </motion.h1>
+            <motion.p 
+              className="text-xl mb-8 text-blue-100"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Embark on a journey of knowledge and growth with Engiversee. We bridge the gap between theoretical education and practical industry skills.
+            </motion.p>
+            <motion.div 
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <button 
+                onClick={handleBookAppointment} 
+                className="btn btn-primary bg-white text-blue-700 hover:bg-blue-50"
+              >
+                Book an Appointment
+              </button>
+              <Link to="/about" className="btn btn-outline border-white text-white hover:bg-white/10">
+                Learn More
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="section bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="mb-4">What We Offer</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our community focuses on offering a variety of educational resources and opportunities to help you excel in your journey.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div 
+              className="card p-8"
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            >
+              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                <BookOpen className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-4">Free Workshops</h3>
+              <p className="text-gray-600">
+                Participate in our hands-on workshops designed to enhance your technical skills across various domains.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              className="card p-8"
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            >
+              <div className="bg-teal-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                <Users className="w-8 h-8 text-teal-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-4">Community Support</h3>
+              <p className="text-gray-600">
+                Join a thriving community of like-minded individuals who share knowledge and support each other's growth.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              className="card p-8"
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            >
+              <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                <Calendar className="w-8 h-8 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-4">Industry Events</h3>
+              <p className="text-gray-600">
+                Connect with industry experts through webinars, seminars, and networking events tailored for engineers.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Domains Section */}
+      <section className="section">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="mb-4">Explore Our Domains</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover educational resources across various technical domains
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {domains.map((domain, index) => (
+              <motion.div 
+                key={index}
+                className="card p-6 text-center"
+                whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+              >
+                <div className="flex justify-center mb-4">
+                  {domain.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-2">{domain.title}</h3>
+                <Link to="/search" className="text-blue-600 hover:text-blue-800 font-medium">
+                  View Sessions →
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-blue-800 text-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Begin Your Journey?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Join Engiversee today and take the first step towards enhancing your skills and advancing your career.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button 
+              onClick={handleBookAppointment}
+              className="btn bg-white text-blue-800 hover:bg-blue-50"
+            >
+              Book an Appointment
+            </button>
+            <Link to="/signup" className="btn border border-white text-white hover:bg-white/10">
+              Sign Up Now
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default HomePage;
