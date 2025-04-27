@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail } from 'lucide-react';
 import SEO from '../components/common/SEO';
-import Link from 'next/link'; // ✅ Import Link for navigation
 
 interface TeamMember {
   id: number;
@@ -21,9 +20,9 @@ const TeamsPage: React.FC = () => {
       id: 1,
       name: "Raghavendra V",
       role: "Founder",
-      image: "https://tse4.mm.bing.net/th?id=OIP.NDE_qBmOavpeezBouVhS3QHaHa&pid=Api&P=0&h=180",
+      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       bio: "Raghavendravis a passionate educator in the ed-tech industry. He founded Engiversee with the vision to bridge the gap between academia and industry.",
-      linkedin: "https://www.linkedin.com/in/raghavendrav1505/",
+      linkedin: "https://www.linkedin.com/company/engiversee/",
       email: "raghavendra@engiversee.com",
       category: "founder"
     },
@@ -91,11 +90,11 @@ const TeamsPage: React.FC = () => {
 
   return (
     <>
-      <SEO
-        title="Our Team"
+      <SEO 
+        title="Our Team" 
         description="Meet the dedicated team behind Engiversee who are passionate about empowering students with knowledge and skills."
       />
-
+      
       {/* Hero Section */}
       <section className="bg-blue-900 text-white py-20">
         <div className="container mx-auto px-4">
@@ -120,7 +119,7 @@ const TeamsPage: React.FC = () => {
 
           <div className="flex flex-wrap justify-center gap-8">
             {founders.map(member => (
-              <motion.div
+              <motion.div 
                 key={member.id}
                 className="bg-white rounded-lg shadow-lg overflow-hidden max-w-sm"
                 initial={{ opacity: 0, y: 20 }}
@@ -136,9 +135,9 @@ const TeamsPage: React.FC = () => {
                   <p className="text-gray-600 mb-6">{member.bio}</p>
                   <div className="flex space-x-4">
                     {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
+                      <a 
+                        href={member.linkedin} 
+                        target="_blank" 
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-800 transition-colors"
                         aria-label={`${member.name}'s LinkedIn`}
@@ -147,7 +146,7 @@ const TeamsPage: React.FC = () => {
                       </a>
                     )}
                     {member.email && (
-                      <a
+                      <a 
                         href={`mailto:${member.email}`}
                         className="text-blue-600 hover:text-blue-800 transition-colors"
                         aria-label={`Email ${member.name}`}
@@ -175,7 +174,7 @@ const TeamsPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {cofounders.map(member => (
-              <motion.div
+              <motion.div 
                 key={member.id}
                 className="bg-white rounded-lg shadow-lg overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
@@ -191,9 +190,9 @@ const TeamsPage: React.FC = () => {
                   <p className="text-gray-600 mb-6">{member.bio}</p>
                   <div className="flex space-x-4">
                     {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
+                      <a 
+                        href={member.linkedin} 
+                        target="_blank" 
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-800 transition-colors"
                         aria-label={`${member.name}'s LinkedIn`}
@@ -202,7 +201,7 @@ const TeamsPage: React.FC = () => {
                       </a>
                     )}
                     {member.email && (
-                      <a
+                      <a 
                         href={`mailto:${member.email}`}
                         className="text-blue-600 hover:text-blue-800 transition-colors"
                         aria-label={`Email ${member.name}`}
@@ -230,7 +229,7 @@ const TeamsPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {team.map(member => (
-              <motion.div
+              <motion.div 
                 key={member.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
@@ -245,9 +244,9 @@ const TeamsPage: React.FC = () => {
                   <p className="text-blue-600 font-medium mb-3">{member.role}</p>
                   <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
                   {member.linkedin && (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
+                    <a 
+                      href={member.linkedin} 
+                      target="_blank" 
                       rel="noopener noreferrer"
                       className="text-blue-600 hover:text-blue-800 transition-colors inline-flex items-center gap-1"
                       aria-label={`${member.name}'s LinkedIn`}
@@ -262,26 +261,22 @@ const TeamsPage: React.FC = () => {
           </div>
         </div>
       </section>
-      <motion.section
-        className="bg-blue-800 text-white py-16"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
+
+      {/* Join Us Section */}
+      <section className="bg-blue-800 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Team</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Are you passionate about education and technology? We're always looking for talented individuals to join our mission.
           </p>
-          <Link
-            href="/contact"
+          <a 
+            href="/contact" 
             className="btn bg-white text-blue-800 hover:bg-blue-50"
           >
             Get in Touch
-          </Link>
+          </a>
         </div>
-      </motion.section>
+      </section>
     </>
   );
 };
