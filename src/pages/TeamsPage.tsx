@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail } from 'lucide-react';
 import SEO from '../components/common/SEO';
+import { Link } from "react-router-dom"; 
 
 interface TeamMember {
   id: number;
@@ -269,12 +270,12 @@ const TeamsPage: React.FC = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Are you passionate about education and technology? We're always looking for talented individuals to join our mission.
           </p>
-          <a 
-            href="/contact" 
-            className="btn bg-white text-blue-800 hover:bg-blue-50"
-          >
-            Get in Touch
-          </a>
+        <Link 
+  to="/contact" 
+  className="btn bg-white text-blue-800 hover:bg-blue-50"
+>
+  Get in Touch
+</Link>
         </div>
       </section>
     </>
