@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from '../../assets/images/logo.png'; // <-- Correct import
-
-
+import logo from '../../assets/images/logo1.png'; // <-- Updated import
 
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg';

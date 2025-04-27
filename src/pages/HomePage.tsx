@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
     
     {
       id: 3,
-      name: "Dipansh Chowdary",
+      name: "Dipansh Choudhary",
       course: "Competitative Coding", 
       videoUrl: "/videos/VID-20250426-WA0005.mp4",
       thumbnail: "/videos/VID-20250426-WA0005.mp4",

@@ -105,7 +105,7 @@ const ContactPage: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold mb-4">Email</h3>
               <a href="mailto:contact@engiversee.com" className="text-gray-700 hover:text-blue-600 transition-colors">
-                contact@engiversee.com
+                knowledge@engiversee.com
               </a>
             </motion.div>
 
