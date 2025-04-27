@@ -270,12 +270,13 @@ const TeamsPage: React.FC = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Are you passionate about education and technology? We're always looking for talented individuals to join our mission.
           </p>
-     <a
-  href="/contact"
+ <Link
+  to="/contact"
   className="bg-white text-blue-800 hover:bg-blue-50 px-4 py-2 rounded-lg shadow-md font-semibold transition duration-300"
 >
   Get in Touch
-</a>
+</Link>
+
 
         </div>
       </section>
