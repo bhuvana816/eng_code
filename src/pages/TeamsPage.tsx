@@ -20,9 +20,9 @@ const TeamsPage: React.FC = () => {
       id: 1,
       name: "Raghavendra V",
       role: "Founder",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      image: "https://tse4.mm.bing.net/th?id=OIP.NDE_qBmOavpeezBouVhS3QHaHa&pid=Api&P=0&h=180",
       bio: "Raghavendravis a passionate educator in the ed-tech industry. He founded Engiversee with the vision to bridge the gap between academia and industry.",
-      linkedin: "https://www.linkedin.com/company/engiversee/",
+      linkedin: "https://www.linkedin.com/in/raghavendrav1505/",
       email: "raghavendra@engiversee.com",
       category: "founder"
     },
