@@ -18,18 +18,18 @@ const TeamsPage: React.FC = () => {
   const teamMembers: TeamMember[] = [
     {
       id: 1,
-      name: "Aditya Sharma",
-      role: "Founder & CEO",
+      name: "Raghavendra V",
+      role: "Founder",
       image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      bio: "Aditya is a passionate educator with 10+ years of experience in the ed-tech industry. He founded Engiversee with the vision to bridge the gap between academia and industry.",
+      bio: "Raghavendravis a passionate educator in the ed-tech industry. He founded Engiversee with the vision to bridge the gap between academia and industry.",
       linkedin: "https://www.linkedin.com/company/engiversee/",
-      email: "aditya@engiversee.com",
+      email: "raghavendra@engiversee.com",
       category: "founder"
     },
     {
       id: 2,
       name: "Priya Patel",
-      role: "Co-Founder & CTO",
+      role: "Co-Founder ",
       image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       bio: "Priya brings her technical expertise and industry connections to Engiversee. She leads our technical workshops and curriculum development.",
       linkedin: "https://www.linkedin.com/company/engiversee/",
