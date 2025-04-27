@@ -25,46 +25,50 @@ const HomePage: React.FC = () => {
   ];
 
   const testimonials = [
+    
     {
       id: 1,
-      name: "Rahul Kumar",
+      name: "Preethi",
       course: "Web Development",
       videoUrl: "/videos/VID-20250426-WA0002.mp4",
       thumbnail: "/videos/VID-20250426-WA0002.mp4",
-      quote: "The web development course completely transformed my career path. The practical approach and industry-relevant projects gave me the confidence to land my dream job."
+      quote: "Their sessions provided valuable resources and insightful webinars that greatly enhanced my learning experience and broadened my understanding of the subject."
     },
     {
       id: 2,
-      name: "Priya Sharma", 
-      course: "Data Science",
+      name: "Padma Sree", 
+      course: "Technical Skills",
       videoUrl: "/videos/VID-20250426-WA0003.mp4",
       thumbnail: "/videos/VID-20250426-WA0003.mp4",
-      quote: "Engiversee's data science program provided me with hands-on experience in real-world projects. The mentors were incredibly supportive throughout my learning journey."
+      quote: "The sessions greatly strengthened my aptitude skills and provided additional resources that helped me improve my overall problem-solving abilities."
     },
+    
     {
       id: 3,
-      name: "Arun Patel",
-      course: "AI & Machine Learning",
+      name: "Dipansh Chowdary",
+      course: "Competitative Coding", 
+      videoUrl: "/videos/VID-20250426-WA0005.mp4",
+      thumbnail: "/videos/VID-20250426-WA0005.mp4",
+      quote: "The coding classes led by Mr. Ragavendra were extremely valuable, with well-organized sessions and hands-on exercises that simplified complex programming topics."
+    },
+    {
+      id: 4,
+      name: "Prajin",
+      course: "CP",
+      videoUrl: "/videos/WhatsApp Video 2025-04-26 at 12.19.02_0908540c.mp4",
+      thumbnail: "/videos/WhatsApp Video 2025-04-26 at 12.19.02_0908540c.mp4",
+      quote: "Attending the coding classes conducted by Mr. Ragavendra was an enriching experience. The sessions were well-structured, and the hands-on exercises made complex programming concepts easy to graspded my expectations. The curriculum was comprehensive and the practical assignments helped me understand complex concepts easily."
+    },
+    /*
+     {
+      id: 5,
+      name: "",
+      course: "Technical Skills",
       videoUrl: "/videos/VID-20250426-WA0004.mp4",
       thumbnail: "/videos/VID-20250426-WA0004.mp4",
       quote: "The AI course exceeded my expectations. The curriculum was comprehensive and the practical assignments helped me understand complex concepts easily."
     },
-    {
-      id: 4,
-      name: "Arun Patel",
-      course: "AI & Machine Learning", 
-      videoUrl: "/videos/VID-20250426-WA0005.mp4",
-      thumbnail: "/videos/VID-20250426-WA0005.mp4",
-      quote: "The AI course exceeded my expectations. The curriculum was comprehensive and the practical assignments helped me understand complex concepts easily."
-    },
-    {
-      id: 5,
-      name: "Arun Patel",
-      course: "AI & Machine Learning",
-      videoUrl: "/videos/WhatsApp Video 2025-04-26 at 12.19.02_0908540c.mp4",
-      thumbnail: "/videos/WhatsApp Video 2025-04-26 at 12.19.02_0908540c.mp4",
-      quote: "The AI course exceeded my expectations. The curriculum was comprehensive and the practical assignments helped me understand complex concepts easily."
-    }
+    */
   ];
 
   return (
