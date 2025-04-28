@@ -76,15 +76,7 @@ const TeamsPage: React.FC = () => {
       linkedin: "https://www.linkedin.com/company/engiversee/",
       category: "team"
     },
-    {
-      id: 7,
-      name: "Karthik Raj",
-      role: "Mobile App Developer",
-      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      bio: "Karthik conducts workshops on mobile app development, covering both Android and iOS platforms with Flutter and React Native.",
-      linkedin: "https://www.linkedin.com/company/engiversee/",
-      category: "team"
-    }
+    
   ];
 
   const founders = teamMembers.filter(member => member.category === 'founder');
