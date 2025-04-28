@@ -17,7 +17,7 @@ const ContactPage: React.FC = () => {
     subject: '',
     message: ''
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
@@ -30,28 +30,32 @@ const ContactPage: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
+    setSubmitError('');
+    setSubmitSuccess(false);
+
+    try {
+      // Simulate API call (you can replace this with real API later)
+      await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // Reset form after submission
+      setSubmitSuccess(true);
       setFormData({
         name: '',
         email: '',
         subject: '',
         message: ''
       });
-      
-      // Reset success message after 5 seconds
+
       setTimeout(() => {
         setSubmitSuccess(false);
       }, 5000);
-    }, 1500);
+    } catch (error) {
+      setSubmitError('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -65,7 +69,7 @@ const ContactPage: React.FC = () => {
       <section className="bg-blue-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="mb-6">Contact Us</h1>
+            <h1 className="mb-6 text-4xl font-bold">Contact Us</h1>
             <p className="text-xl text-blue-100">
               Have questions or feedback? We'd love to hear from you!
             </p>
@@ -74,9 +78,10 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="section bg-gray-50">
-        <div className="container">
+      <section className="section bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Phone */}
             <motion.div 
               className="bg-white p-8 rounded-lg shadow-md text-center"
               initial={{ opacity: 0, y: 20 }}
@@ -93,6 +98,7 @@ const ContactPage: React.FC = () => {
               </a>
             </motion.div>
 
+            {/* Email */}
             <motion.div 
               className="bg-white p-8 rounded-lg shadow-md text-center"
               initial={{ opacity: 0, y: 20 }}
@@ -109,6 +115,7 @@ const ContactPage: React.FC = () => {
               </a>
             </motion.div>
 
+            {/* Location */}
             <motion.div 
               className="bg-white p-8 rounded-lg shadow-md text-center"
               initial={{ opacity: 0, y: 20 }}
@@ -130,8 +137,8 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="section">
-        <div className="container">
+      <section className="section py-16">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <motion.div 
               className="bg-white p-8 rounded-lg shadow-lg"
@@ -141,15 +148,15 @@ const ContactPage: React.FC = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl font-bold mb-6 text-center">Send Us a Message</h2>
-              
+
               {submitSuccess && (
-                <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-md">
+                <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-md text-center">
                   Thank you for your message! We'll get back to you soon.
                 </div>
               )}
-              
+
               {submitError && (
-                <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-md">
+                <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-md text-center">
                   {submitError}
                 </div>
               )}
@@ -170,7 +177,7 @@ const ContactPage: React.FC = () => {
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                       Email Address
@@ -186,7 +193,7 @@ const ContactPage: React.FC = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                     Subject
@@ -201,7 +208,7 @@ const ContactPage: React.FC = () => {
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                     Message
@@ -216,7 +223,7 @@ const ContactPage: React.FC = () => {
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
-                
+
                 <div>
                   <button
                     type="submit"
@@ -238,45 +245,27 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="section bg-gray-50">
-        <div className="container">
+      <section className="section bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="mb-4">Frequently Asked Questions</h2>
+            <h2 className="mb-4 text-3xl font-bold">Frequently Asked Questions</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Find answers to common questions about Engiversee
             </p>
           </div>
-          
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">How can I join Engiversee as a student?</h3>
-                <p className="text-gray-700">
-                  You can sign up on our website to create an account, which gives you access to our resources, workshops, and events. Many of our resources are available for free.
-                </p>
+
+          <div className="max-w-3xl mx-auto space-y-6">
+            {[
+              { q: 'How can I join Engiversee as a student?', a: 'You can sign up on our website to create an account, which gives you access to our resources, workshops, and events. Many of our resources are available for free.' },
+              { q: 'Do you offer internship opportunities?', a: 'Yes, we offer internship opportunities for students who are interested in gaining practical experience in education technology, content creation, and community management.' },
+              { q: 'Can I volunteer with Engiversee?', a: 'Absolutely! We welcome passionate individuals who want to contribute to our mission. Please reach out to us through the contact form with your details and areas of interest.' },
+              { q: 'How can my institution collaborate with Engiversee?', a: 'We are open to collaborations with educational institutions. Please contact us with your proposal and we will discuss potential partnership opportunities.' },
+            ].map((faq, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-3">{faq.q}</h3>
+                <p className="text-gray-700">{faq.a}</p>
               </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">Do you offer internship opportunities?</h3>
-                <p className="text-gray-700">
-                  Yes, we offer internship opportunities for students who are interested in gaining practical experience in education technology, content creation, and community management.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">Can I volunteer with Engiversee?</h3>
-                <p className="text-gray-700">
-                  Absolutely! We welcome passionate individuals who want to contribute to our mission. Please reach out to us through the contact form with your details and areas of interest.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">How can my institution collaborate with Engiversee?</h3>
-                <p className="text-gray-700">
-                  We're open to collaborations with educational institutions. Please contact us with your proposal and we'll discuss potential partnership opportunities.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

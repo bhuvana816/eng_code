@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Linkedin, Mail } from 'lucide-react';
 import SEO from '../components/common/SEO';
 import { Link } from "react-router-dom"; 
+import VIVEK  from '../assets/images/VIVEK.jpg';
+
 
 interface TeamMember {
   id: number;
@@ -49,11 +51,11 @@ const TeamsPage: React.FC = () => {
     },
     {
       id: 4,
-      name: "Ananya Gupta",
+      name: "Vivek Deshmukh",
       role: "Lead Web Developer",
-      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      bio: "Ananya leads our web development workshops and creates engaging content for students looking to excel in front-end and back-end technologies.",
-      linkedin: "https://www.linkedin.com/company/engiversee/",
+      image: VIVEK,
+      bio: "Vivek leads our web development workshops and creates engaging content for students looking to excel in front-end and back-end technologies.",
+      linkedin: "http://www.linkedin.com/in/vivekdeshmukhsoftwaredeveloper",
       category: "team"
     },
     {
