@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
+import { API_URL } from '../config';
 
 interface FormData {
   name: string;
@@ -37,8 +38,19 @@ const ContactPage: React.FC = () => {
     setSubmitSuccess(false);
 
     try {
-      // Simulate API call (you can replace this with real API later)
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
       
       setSubmitSuccess(true);
       setFormData({
@@ -52,7 +64,7 @@ const ContactPage: React.FC = () => {
         setSubmitSuccess(false);
       }, 5000);
     } catch (error) {
-      setSubmitError('Failed to send message. Please try again later.');
+      setSubmitError(error instanceof Error ? error.message : 'Failed to send message. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
