@@ -56,7 +56,6 @@ const Navbar: React.FC = () => {
           <nav className="hidden md:flex items-center space-x-6">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/about" className="nav-link">About Us</Link>
-            <Link to="/teams" className="nav-link">Our Team</Link>
             <Link to="/contact" className="nav-link">Contact</Link>
           </nav>
 
@@ -135,7 +134,6 @@ const Navbar: React.FC = () => {
           <nav className="md:hidden mt-4 bg-white rounded-lg shadow-lg p-4 flex flex-col space-y-4">
             <Link to="/" className="nav-link-mobile">Home</Link>
             <Link to="/about" className="nav-link-mobile">About Us</Link>
-            <Link to="/teams" className="nav-link-mobile">Our Team</Link>
             <Link to="/contact" className="nav-link-mobile">Contact</Link>
             
             <div className="pt-4 border-t border-gray-200 flex flex-col space-y-3">

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Calendar, GraduationCap, Award, Lightbulb, Play } from 'lucide-react';
+import { BookOpen, Users, Calendar, GraduationCap, Award, Lightbulb, Play, Linkedin } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import SEO from '../components/common/SEO';
+import VIVEK from '../assets/images/VIVEK.jpg';
 
 const HomePage: React.FC = () => {
   const { isAuthenticated } = useAuth();
@@ -200,6 +201,55 @@ const HomePage: React.FC = () => {
                   </Link>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Team Member Spotlight */}
+        <section className="section bg-gray-50" aria-labelledby="team-spotlight-heading">
+          <div className="container">
+            <div className="text-center mb-16">
+              <h2 id="team-spotlight-heading" className="mb-4">Meet Our Lead Web Developer</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Get to know the expert behind our web development workshops
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <motion.div 
+                className="bg-white rounded-lg shadow-lg overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex flex-col md:flex-row">
+                  <div className="md:w-1/3">
+                    <img 
+                      src={VIVEK} 
+                      alt="Vivek Deshmukh" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-8 md:w-2/3">
+                    <h3 className="text-2xl font-bold mb-2">Vivek Deshmukh</h3>
+                    <p className="text-blue-600 font-medium mb-4">Lead Web Developer</p>
+                    <p className="text-gray-600 mb-6">
+                      Vivek leads our web development workshops and creates engaging content for students looking to excel in front-end and back-end technologies. With his expertise and passion for teaching, he helps students bridge the gap between academic knowledge and industry requirements.
+                    </p>
+                    <a 
+                      href="http://www.linkedin.com/in/vivekdeshmukhsoftwaredeveloper"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+                      aria-label="Connect with Vivek on LinkedIn"
+                    >
+                      <Linkedin className="w-5 h-5 mr-2" />
+                      Connect on LinkedIn
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
