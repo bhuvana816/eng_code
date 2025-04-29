@@ -37,11 +37,14 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+<<<<<<< HEAD
                 <Link to="/teams" className="text-gray-300 hover:text-white transition-colors">
                   Our Team
                 </Link>
               </li>
               <li>
+=======
+>>>>>>> 77f9098 (Made changes to XYZ)
                 <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">
                   Contact Us
                 </Link>

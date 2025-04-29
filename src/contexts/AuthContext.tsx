@@ -4,6 +4,31 @@ interface User {
   id: string;
   name: string;
   email: string;
+<<<<<<< HEAD
+=======
+  phone?: string;
+  location?: string;
+  occupation?: string;
+  education?: string;
+  github?: string;
+  linkedin?: string;
+  appointments?: {
+    id: string;
+    date: string;
+    time: string;
+    purpose: string;
+    status: 'PENDING' | 'CONFIRMED' | 'CANCELLED' | 'COMPLETED';
+  }[];
+  sessions?: {
+    id: string;
+    title: string;
+    domain: string;
+    date: string;
+    time: string;
+    instructor: string;
+    status: 'UPCOMING' | 'COMPLETED';
+  }[];
+>>>>>>> 77f9098 (Made changes to XYZ)
 }
 
 interface AuthContextType {
@@ -12,6 +37,10 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<boolean>;
   signup: (name: string, email: string, password: string) => Promise<boolean>;
   logout: () => void;
+<<<<<<< HEAD
+=======
+  updateProfile: (data: Partial<User>) => Promise<boolean>;
+>>>>>>> 77f9098 (Made changes to XYZ)
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -44,6 +73,51 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         id: '1',
         name: email.split('@')[0],
         email,
+<<<<<<< HEAD
+=======
+        phone: '+1234567890',
+        location: 'New York, USA',
+        occupation: 'Software Engineer',
+        education: 'B.S. Computer Science',
+        github: 'https://github.com/username',
+        linkedin: 'https://linkedin.com/in/username',
+        appointments: [
+          {
+            id: '1',
+            date: '2025-05-01',
+            time: '10:00 AM',
+            purpose: 'Career Guidance',
+            status: 'COMPLETED' as const
+          },
+          {
+            id: '2',
+            date: '2025-05-15',
+            time: '2:00 PM',
+            purpose: 'Technical Interview Preparation',
+            status: 'PENDING' as const
+          }
+        ],
+        sessions: [
+          {
+            id: '1',
+            title: 'Advanced React with Redux',
+            domain: 'Web Development',
+            date: '2025-04-20',
+            time: '10:00 AM - 1:00 PM',
+            instructor: 'Ananya Gupta',
+            status: 'COMPLETED' as const
+          },
+          {
+            id: '2',
+            title: 'Deep Learning with TensorFlow',
+            domain: 'AI & ML',
+            date: '2025-05-02',
+            time: '2:00 PM - 5:00 PM',
+            instructor: 'Vikram Singh',
+            status: 'UPCOMING' as const
+          }
+        ]
+>>>>>>> 77f9098 (Made changes to XYZ)
       };
       
       setUser(mockUser);
@@ -61,6 +135,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         id: '1',
         name,
         email,
+<<<<<<< HEAD
+=======
+        appointmentsCount: 0,
+        sessionsCount: 0
+>>>>>>> 77f9098 (Made changes to XYZ)
       };
       
       setUser(mockUser);
@@ -71,6 +150,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return false;
   };
 
+<<<<<<< HEAD
+=======
+  const updateProfile = async (data: Partial<User>): Promise<boolean> => {
+    if (user) {
+      const updatedUser = { ...user, ...data };
+      setUser(updatedUser);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      return true;
+    }
+    return false;
+  };
+
+>>>>>>> 77f9098 (Made changes to XYZ)
   const logout = () => {
     setUser(null);
     setIsAuthenticated(false);
@@ -83,6 +175,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     login,
     signup,
     logout,
+<<<<<<< HEAD
+=======
+    updateProfile
+>>>>>>> 77f9098 (Made changes to XYZ)
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
